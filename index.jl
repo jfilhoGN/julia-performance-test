@@ -25,17 +25,16 @@ function benchmark_parallel_post(url, payload, n_requests)
     @benchmark parallel_post_requests($url, $payload, $n_requests)
 end
 
-# Configuração do teste
-url = "https://httpbin.org/post"  # Endpoint de teste
-payload = Dict("key1" => "value1", "key2" => "value2")  # Corpo da requisição
-n_requests = 20  # Número de requisições a serem realizadas
+url = "https://httpbin.org/post"  
+payload = Dict("key1" => "value1", "key2" => "value2")  
+n_requests = 20  
 
-println("Iniciando benchmark com $n_requests requisições paralelas...\n")
+println("Inicialized benchmark with $n_requests parallell requests...\n")
 
 result = benchmark_parallel_post(url, payload, n_requests)
 
-println("\nResultado do benchmark:")
+println("\Result of Requests:")
 display(result)
-println("Tempo médio (μs): ", mean(result))
-println("Tempo mínimo (μs): ", minimum(result))
-println("Tempo máximo (μs): ", maximum(result))
+println("Avg. Time (μs): ", mean(result))
+println("Min. time (μs): ", minimum(result))
+println("Max. time (μs): ", maximum(result))
